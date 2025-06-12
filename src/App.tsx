@@ -11,6 +11,30 @@ function App () {
     setContent(e.target.value)
     setHtmlCode(e.target.value)
   }
+  const handleDownload = () => {
+    const blob = new Blob([htmlCode], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'figma-preview.html';
+    document.body.appendChild(link);
+    link.click();
+
+    URL.revokeObjectURL(url);
+    document.body.removeChild(link);
+  };
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(htmlCode);
+      alert('HTML copiado para a área de transferência!');
+    } catch (err) {
+      console.error('Erro ao copiar:', err);
+      alert('Não foi possível copiar o conteúdo.');
+    }
+  };
+
+
 
   useEffect(() => {
     const template = (content: string) => {
@@ -90,6 +114,10 @@ function App () {
             <div className='flex flex-col'>
               <label htmlFor="Código Final" className='font-semibold'>Código Final <small>(Salve com a extensão .html)</small></label>
               <textarea rows={8} className='w-full border border-slate-500 font-mono p-2 rounded-md' value={content && htmlCode}></textarea>
+              {content && <div className='flex flex-row justify-end mt-4 gap-4'>
+                <button onClick={handleCopy} className='border rounded border-slate-500 px-4 py-2'>Copiar</button>
+                <button onClick={handleDownload} className='border rounded border-slate-500 px-4 py-2'>Baixar HTML</button>
+              </div>}
             </div>
           </div>
           <div className='w-6/12'>
