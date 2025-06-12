@@ -123,7 +123,7 @@ function App () {
           <div className='w-6/12'>
             <div className='flex flex-col h-full'>
               <label htmlFor="preview" className='font-semibold'>Preview do arquivo Figma</label>
-              <div id='preview' className='border border-slate-500 rounded-md min-h-96 h-full overflow-hidden flex justify-center items-center w-full' dangerouslySetInnerHTML={{ __html: content.replace("800", "100%").replace("show-proto-sidebar=1", "show-proto-sidebar=0") }} />
+              <div id='preview' className='border border-slate-500 rounded-md min-h-96 h-full overflow-hidden flex justify-center items-center w-full' dangerouslySetInnerHTML={{ __html: content.replace("800", "100%").replace("450", "494").replace("show-proto-sidebar=1", "show-proto-sidebar=0") }} />
             </div>
           </div>
         </div>
