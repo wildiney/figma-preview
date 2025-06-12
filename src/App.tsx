@@ -105,7 +105,7 @@ function App () {
     <>
       <div className='container mx-auto px-4'>
         <h1 className='text-4xl mt-5 mb-10 font-bold text-slate-800'>Gerador Figma</h1>
-        <form className='flex flex-row gap-6'>
+        <div className='flex flex-row gap-6'>
           <div className='w-6/12 flex flex-col justify-between flex-wrap'>
             <div className='flex flex-col mb-4 content-between'>
               <label htmlFor='FigmaEmbedCode' className='font-semibold'>Insira o código gerado pelo Figma</label>
@@ -126,7 +126,7 @@ function App () {
               <div id='preview' className='border border-slate-500 rounded-md min-h-96 h-full overflow-hidden flex justify-center items-center w-full' dangerouslySetInnerHTML={{ __html: content.replace("800", "100%").replace("show-proto-sidebar=1", "show-proto-sidebar=0") }} />
             </div>
           </div>
-        </form>
+        </div>
       </div>
     </>
   )
